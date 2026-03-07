@@ -1,8 +1,8 @@
 # Build stage
-FROM node:18-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN rm -f package-lock.json && npm install
 COPY . .
 RUN npm run build
 
@@ -10,7 +10,6 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Fix React Router client-side routing
 RUN echo 'server { \
     listen 80; \
     location / { \
