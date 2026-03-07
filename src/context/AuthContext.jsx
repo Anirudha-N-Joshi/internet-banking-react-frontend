@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react'
 import axios from 'axios'
 import { jwtDecode } from 'jwt-decode'
 
-axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8080'
 
 const AuthContext = createContext()
 
