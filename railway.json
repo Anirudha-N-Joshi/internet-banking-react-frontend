@@ -1,0 +1,5 @@
+{
+    "deploy": {
+        "startCommand": "caddy run --config /app/Caddyfile --adapter caddyfile 2>&1"
+    }
+}
