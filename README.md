@@ -57,7 +57,7 @@ npm --version
 
 ```bash
 git clone https://github.com/Anirudha-N-Joshi/internet-banking-react-frontend.git
-cd novapay-frontend
+cd internet-banking
 ```
 
 ### 2. Install dependencies
