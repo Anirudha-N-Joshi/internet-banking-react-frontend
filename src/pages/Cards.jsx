@@ -218,6 +218,29 @@ export default function Cards() {
             </select>
           </div>
 
+          {form.cardType === "CREDIT" && (
+            <div>
+              <label
+                style={{  display: 'block', fontSize: '13px', fontWeight: '500', marginBottom: '8px', color: 'var(--text-muted)'
+                }}
+              >
+                Credit Limit
+              </label>
+
+              <input
+                type="number" className="input-field" placeholder="Enter credit limit" value={form.creditLimit || ""}
+                onChange={(e) =>
+                  setForm((p) => ({ ...p, creditLimit: e.target.value }))
+                }
+                style={{
+                  background: 'rgba(255,255,255,0.04)',
+                  color: 'var(--text-primary)'
+                }}
+                required min="1000"
+              />
+            </div>
+          )}
+
           {createCard.isError && (
             <p style={{ color: '#ef4444', fontSize: '13px' }}>
               {createCard.error?.response?.data?.message || 'Failed to create card'}
