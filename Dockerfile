@@ -4,6 +4,11 @@ WORKDIR /app
 COPY package*.json ./
 RUN rm -f package-lock.json && npm install
 COPY . .
+
+# Accept build arg and set as env
+ARG VITE_API_URL
+ENV VITE_API_URL=$VITE_API_URL
+
 RUN npm run build
 
 # Serve stage
